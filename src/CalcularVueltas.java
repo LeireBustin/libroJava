@@ -52,7 +52,7 @@ public class CalcularVueltas {
 			}
 			System.out.println("\tLa vuelta es de " + vVueltasTotales + 
 					" euros con el siguiente numero de billetes de diferente tipo/valor: \t");
-			for(int i=0; i<=(numBilletes.length-1); i++) {
+			for(int i=0; i<(numBilletes.length); i++) {
 				System.out.println(numBilletes[i] + " billetes/monedas de " + BILLETES_MONEDAS[i] + " euros\t");
 			}
 			
