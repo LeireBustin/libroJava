@@ -1,14 +1,30 @@
 
 public class TocaLeer {
 
-	static String [] alumnos = {"Arkaitz", "Erlantz", "Fran" , 
-			"Cristian", "Leire", "Mikel", "Josu", "Alberto", "Jon", "Lander", "German"
-			};
+	/*static String [] alumnos = {"Arkaitz",
+			"Erlantz",
+			"Fran" , 
+			"Cristian",
+			"Leire",
+			"Mikel",
+			"Josu",
+			"Alberto",
+			"Jon",
+			"Arantxa",
+			"X"			
+			"Lander",
+			"Yeray",
+			"German"};
+	*/
+	
+	static Participante [] alumnos = new Participante[15];
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		
 		int numAleatorio = 0;
 		String alumno = "Ander";
