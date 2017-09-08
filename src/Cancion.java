@@ -2,9 +2,9 @@
 public class Cancion {
 
 	// ATRIBUTOS
-	String titulo;
-	String artista;
-	int duracion; // en minutos
+	private String titulo;
+	private String artista;
+	private int duracion; // en minutos
 
 	// CONSTRUCTORES
 	public Cancion() {
@@ -37,6 +37,10 @@ public class Cancion {
 		this.artista = artista;
 		this.duracion = duracion;
 
+	}
+
+	public String toString() {
+		return "Cancion [titulo=" + titulo + ", artista=" + artista + ", duracion=" + duracion + "]";
 	}
 
 	// getters y setters
