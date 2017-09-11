@@ -1,3 +1,7 @@
+package com.ipartek.formacion.javalibro.utilidades;
+
+import com.ipartek.formacion.javalibro.pojo.Participante;
+
 /**
  * las variables primitivas se pasan por valor: copia del valor, no cambia
  * Las variables de Clase se pasan por referencia
@@ -21,6 +25,8 @@ public class VariablesReferenciaYvalor {
 		String referencia2 = sumar(referencia);
 		System.out.println("Referencia: " + referencia);
 		System.out.println("Referencia2: " + referencia2);
+		
+			
 	}
 	static int sumar( int i ){
 	return ++i;

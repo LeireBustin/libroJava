@@ -1,5 +1,9 @@
+package com.ipartek.formacion.javalibro.ejercicios;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.ipartek.formacion.javalibro.pojo.Cancion;
 
 public class MenuCanciones {
 
@@ -20,8 +24,8 @@ public class MenuCanciones {
 		inicializarCanciones();
 		mostrarMenu();
 
-		pedirOpcion();
 		do {
+			pedirOpcion();
 			switch (opcionSeleccionada) {
 			case OP_LISTAR:
 				listar();
@@ -36,27 +40,30 @@ public class MenuCanciones {
 
 			case OP_CREAR:
 				// Pedir y crear
-				crearCancion();// add
-				detalle();//
+				crear();// add
+				mostrarMenu();
 				listar();
 
 			case OP_DETALLE:
-				listar();
-				mostrarDetalle();
+				detalle();//
 				mostrarMenu();
+				break;
 
-			case OP_SALIR:
+			//case OP_SALIR:
 
 				// TODO hacer el resto de opciones
-
+				
+			
 			default:
 				break;
 			}
 		} while (OP_SALIR != opcionSeleccionada);
+		
+		System.out.println("Agur y gracias por escucharnos");
 
 	}
 
-	private static void crearCancion() {
+	private static void crear() {
 		// incluir canciones en Array.
 		sc = new Scanner(System.in);
 		System.out.println("Introduce el titulo de la cancion: ");
@@ -66,9 +73,9 @@ public class MenuCanciones {
 		String artista = sc.next();
 
 		System.out.println("Introduce la duracion de la cancion en numero de minutos: ");
-		int duracion = sc.next();
+		String duracion = sc.next();
 
-		cancion c = new Cancion(titulo, artista, duracion);
+		Cancion c = new Cancion(titulo, artista, duracion);
 		canciones.add(c);
 		//ASI SE PUEDE??	canciones.add(setTitulo(titulo), setArtista(artista), setDuracion(duracion));
 
@@ -79,6 +86,19 @@ public class MenuCanciones {
 	private static void eliminar() {
 		// TODO Auto-generated method stub
 		// Eliminar cancion
+		System.out.println("Dime el numero de cancion a eliminar");
+		sc = new Scanner(System.in);
+		int cancionPosicionEliminar = sc.nextInt();
+		cancionPosicionEliminar--;
+		
+		//comprobar que exista la cancion
+		if ( cancionPosicionEliminar >= 0 &&  cancionPosicionEliminar <= canciones.size() ) {
+			
+			canciones.remove(cancionPosicionEliminar);
+			
+		}else {
+			System.out.println("Lo siento pero no existe esa cancion");
+		}
 
 	}
 
@@ -86,8 +106,8 @@ public class MenuCanciones {
 		// TODO Auto-generated method stub
 		// Listar Array
 		for (int i = 0; i < canciones.size(); i++) {
-			System.out.println((i+1) + canciones.get(i).getTitulo());
-			//NO SERVIRIA?	canciones.getTitulo(i);
+			System.out.println((i+1) + canciones.get(i).getNombre());
+			
 		}
 
 	}
@@ -98,28 +118,49 @@ public class MenuCanciones {
 		sc = new Scanner(System.in);
 		boolean opcionCorrecta = false;
 		
-		try {
-			do {
+		do {
+			try {
 			System.out.println("Selecciona una opcion del 1 al 5");
 			opcionSeleccionada = sc.nextInt();
 			if (opcionSeleccionada >= 1 && opcionSeleccionada <= 5 ) {
 				opcionCorrecta = true;
 				//sc.close();
-			} else catch (Exception e) {
-				
+			} else {
+				System.out.println("Por favor aprende a leer y dime una opcion entre 1 y 5");
 			}
+				
+		}catch (Exception e) {
 			
-			} while (!opcionCorrecta);
+			System.out.println("Por favor selecciona una opcion valida");
+				
+		}
+			
+		} while (!opcionCorrecta);
 			
 			System.out.println("Agur. Gracias por su visita.");
 		
 		}
 		
 
-	}
+	
 	
 	private static void detalle() {
 	//NO SERVIRIA? canciones.toString();
+		
+		System.out.println("Dime el numero de cancion para ver su detalle");
+		sc = new Scanner(System.in);
+		int cancionPosicion = sc.nextInt();
+		cancionPosicion--;
+		if ( cancionPosicion >= 0 &&  cancionPosicion <= canciones.size() ) {
+			Cancion c = canciones.get(cancionPosicion);
+			System.out.println( "Nombre: " + c.getNombre());
+			System.out.println( "Artista: " + c.getArtista());
+			System.out.println( "Duracion" + c.getDuracion());
+			System.out.println(" ");
+			
+		}else {
+			System.out.println("Lo siento pero no existe esa cancion");
+		}
 	}
 
 	private static void mostrarMenu() {
@@ -139,7 +180,7 @@ public class MenuCanciones {
 
 		final String cancion1 = "Can1";
 		final String artista1 = "Art1";
-		final int duracion1 = 4;
+		final String duracion1 = "3:3";
 		final String cancion2 = "Can2";
 		final String cancion3 = "Can3";
 		final String cancion4 = "Can4";
@@ -155,7 +196,7 @@ public class MenuCanciones {
 
 		canciones = new ArrayList<Cancion>();
 		for (int i = 0; i < 10; i++) {
-			canciones.add(new Cancion("Fiesta Pagana" + i, "Mafo de Hoz" + i, 3 + i));
+			canciones.add(new Cancion("Fiesta Pagana" + i, "Mafo de Hoz" + i, "3;3" + i));
 		}
 
 	}

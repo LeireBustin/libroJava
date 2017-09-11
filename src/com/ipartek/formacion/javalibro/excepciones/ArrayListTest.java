@@ -1,3 +1,5 @@
+package com.ipartek.formacion.javalibro.excepciones;
+
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
