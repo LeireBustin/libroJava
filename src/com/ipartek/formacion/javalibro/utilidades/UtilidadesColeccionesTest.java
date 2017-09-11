@@ -1,5 +1,7 @@
 package com.ipartek.formacion.javalibro.utilidades;
 
+import java.util.Arrays;
+
 import junit.framework.TestCase;
 
 public class UtilidadesColeccionesTest extends TestCase {
@@ -18,6 +20,28 @@ public class UtilidadesColeccionesTest extends TestCase {
 		
 		
 		//TODO comprobar orden inverso
+		int[] ordenadorMayorMenor = UtilidadesColecciones.ordenarArray(aDesordando, true);
+		
+		for (int i = ordenadorMayorMenor.length-1; i <= 0; i--) {
+			assertEquals(ordenadorMayorMenor[i], i);
+			
+		}
+		
+	}
+	
+	public void testOrdenacionJava() {
+		
+		int[] aDesordando = {0,3,1,8,7,2,5,4,6,9};
+		
+		Arrays.sort(aDesordando);
+		
+		for(int i = 0; i < aDesordando.length; i++) {
+			
+			assertEquals(i, aDesordando[i]);
+			
+		}
+		
+		
 		
 		
 	}
