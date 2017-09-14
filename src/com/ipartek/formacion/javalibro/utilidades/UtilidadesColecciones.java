@@ -15,57 +15,58 @@ public class UtilidadesColecciones {
 	static int[] ordenarArray(int[] aDesordenado, boolean orden) {
 
 		int[] resul = aDesordenado.clone();
-		
+
 		int aux = 0;
-		if (orden) { //mayor a menor
-			
-			for(int i = 0; i < aDesordenado.length; i++) {
-				if (a[i] <= a[i + 1]) {
-					aux = a[i];
+		if (orden) { // mayor a menor
+
+			for (int i = 0; i < resul.length; i++) {
+				for (int j = 0; j < resul.length - 1; j++) {
+					if (resul[j] < resul[j + 1]) {
+						aux = resul[j + 1];
+						resul[j + 1] = resul[j];
+						resul[j] = aux;
+					}
+				}
+			}
+
+		} else { // menor a mayor
+			for (int i = 0; i < resul.length; i++) {
+				for (int j = 0; j < resul.length - 1; j++) {
+					if (resul[j] > resul[j + 1]) {
+						aux = resul[j + 1];
+						resul[j + 1] = resul[j];
+						resul[j] = aux;
+					}
 				}
 			}
 		}
-		
-/**		
-		// int a[] = new int [10];
-		// int a[] = { 0, 3, 1, 8, 7, 2, 5, 4, 6, 9 };
-		int a[] = { 0, 2, 1 };
-		int cambios = 0;
-		boolean ordenado = false;
-
-		// try catch??
-
-		// for???
-		do {
-
-			for (int i = 0; i < a.length; i++) {
-
-				if (a[i] <= a[i + 1]) {
-
-					System.out.println("No hay cambio:" + a.toString());
-					boolean[] aOrdenados = new boolean[a.length];
-					for (int k = 0; k < aOrdenados.length; k++) {
-						aOrdenados[k] = true;
-						i++;
-					}
-
-				} else {
-					// seguro q hay una funcion de intercambio
-					cambios++;
-					int sust = a[i];
-					a[i] = a[i + 1];
-					a[i + 1] = sust;
-					System.out.println(a.toString());
-
-				}
-			}
-
-		} while (!ordenado);
-
-		System.out.println("FIN ordenado: " + a.toString());
-**/
-		
 		return resul;
 	}
 
 }
+
+/*
+ * // int a[] = new int [10]; // int a[] = { 0, 3, 1, 8, 7, 2, 5, 4, 6, 9 }; int
+ * a[] = { 0, 2, 1 }; int cambios = 0; boolean ordenado = false;
+ * 
+ * // try catch??
+ * 
+ * // for??? do {
+ * 
+ * for (int i = 0; i < a.length; i++) {
+ * 
+ * if (a[i] <= a[i + 1]) {
+ * 
+ * System.out.println("No hay cambio:" + a.toString()); boolean[] aOrdenados =
+ * new boolean[a.length]; for (int k = 0; k < aOrdenados.length; k++) {
+ * aOrdenados[k] = true; i++; }
+ * 
+ * } else { // seguro q hay una funcion de intercambio cambios++; int sust =
+ * a[i]; a[i] = a[i + 1]; a[i + 1] = sust; System.out.println(a.toString());
+ * 
+ * } }
+ * 
+ * } while (!ordenado);
+ * 
+ * System.out.println("FIN ordenado: " + a.toString());
+ */

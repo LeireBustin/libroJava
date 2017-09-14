@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javalibro.excepciones;
+package com.ipartek.formacion.javalibro.ejercicios;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class ArrayListTest extends TestCase {
 
 	
 	static final String FRANCIA = "Francia";
-	static final String JAPON = "Francia";
+	static final String JAPON = "Japon";
 	static final String ITALIA = "Italia";
 	static final String NORUEGA = "Noruega";
 	
@@ -25,20 +25,14 @@ public class ArrayListTest extends TestCase {
 			paises.add(ITALIA);
 			//assertEquals(3 , paises.size() );
 			paises.add(NORUEGA);
-			//assertEquals(4 , paises.size() );
+			assertEquals(4 , paises.size() );
 			
 			//BORRAR
 			paises.remove(0);
 			assertEquals(3 , paises.size() );
 			assertEquals( JAPON , paises.get(0) );
 			
-			
-			
-			
-			
-			
-			
-			
+	
 		}
 		
 }

@@ -3,7 +3,7 @@ package com.ipartek.formacion.javalibro.excepciones;
 
 public class PopagarExcepciones {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 
 		comoMarron();
@@ -11,29 +11,30 @@ public class PopagarExcepciones {
 	}
 	
 	private static void lanzoExcepcion() throws Exception {
-		
 		System.out.println("lanzoExcepcion ENTRO");
-		//
-		System.out.println("lanzoExcepcion SALGO");
 		throw new Exception();
+		//System.out.println("lanzoExcepcion SALGO");
 	}
 	
 	private static void pasoMarron() throws Exception {
-		
 		System.out.println("pasoMarron ENTRO");
 		lanzoExcepcion();
 		System.out.println("pasoMarron SALGO");
 	}
-
-	private static void comoMarron() {
-		
+	
+	private static void comoMarron() throws Exception {
 		System.out.println("comoMarron ENTRO");
+		pasoMarron();
+		/*
 		try {
 			pasoMarron();
 		} catch (Exception e) {
-			System.out.println("Ya me encargo yo");
+			System.out.println("YA me encargo yo de gestionar la Excepcion");			
 		}
-		
+		*/
 		System.out.println("comoMarron SALGO");
 	}
+	
+	
+
 }

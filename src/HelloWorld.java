@@ -9,9 +9,19 @@ public class HelloWorld {
 		// TODO Auto-generated method stub
 			System.out.println("Hello World");
 			
-			String [] alumnos = {"Arkaitz", "Erlantz", "Fran" , 
-				"Cristian", "Leire", "Mikel", "Josu", "Alberto", "Jon", "Lander", "German"
-				};
+			String [] alumnos = {"Ander",
+								"Arkaitz",
+								"Erlantz",
+								"Fran" ,
+								"Cristian",
+								"Leire",
+								"Mikel",
+								"Josu",
+								"Alberto",
+								"Jon",
+								"Lander",
+								"German"
+								};
 			
 			System.out.println("--------Listado alumnos------------");
 			

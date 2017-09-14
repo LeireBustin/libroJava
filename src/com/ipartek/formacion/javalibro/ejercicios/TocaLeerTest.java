@@ -12,12 +12,12 @@ public class TocaLeerTest extends TestCase {
 		
 		for (int i = 0; i < 1000; i++){
 			numAleatorio = TocaLeer.generarNumeroAleatorio(15);
-			aCheck [numAleatorio]=true; 
+			aCheck [numAleatorio] = true; 
 		}
 		
 		//comprobar q todas las posiciones sean true
 		for (int i = 0; i < aCheck.length; i++){
-			assertTrue(aCheck[i]);
+			assertTrue("deberia haber salido el numero " + i , aCheck[i]);
 		}
 	
 	}

@@ -9,9 +9,11 @@ public class UtilidadesStringTest extends TestCase {
 		
 		//Caso facil --> assert hay q poner una verdad absoluta
 		assertEquals(1, UtilidadesString.buscarPalabra("Ahora toca descanso", "descanso"));
+		assertEquals(1, UtilidadesString.buscarPalabra("Ahora toca descanso.", "descanso"));
 		assertEquals(2, UtilidadesString.buscarPalabra("Ahora toca descanso descanso", "descanso"));
-		assertEquals(0, UtilidadesString.buscarPalabra("Ahora toca descansodescanso", "descanso"));
-				
+		assertEquals(2, UtilidadesString.buscarPalabra("Ahora toca descansodescanso", "descanso"));
+		assertEquals(1, UtilidadesString.buscarPalabra("Ahora toca Adescanso", "descanso"));
+		
 		//Caso NULL --> Comprobar NULLs
 		assertEquals(0 , UtilidadesString.buscarPalabra( null , null ));
 		assertEquals(0 , UtilidadesString.buscarPalabra( null, "descanso"));

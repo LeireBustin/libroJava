@@ -1,56 +1,69 @@
 package com.ipartek.formacion.javalibro.ejercicios;
-
 import com.ipartek.formacion.javalibro.pojo.Participante;
 
 public class TocaLeer {
 
-	/*static String [] alumnos = {"Arkaitz",
-			"Erlantz",
-			"Fran" , 
-			"Cristian",
-			"Leire",
-			"Mikel",
-			"Josu",
-			"Alberto",
-			"Jon",
-			"Arantxa",
-			"X"			
-			"Lander",
-			"Yeray",
-			"German"};
-	*/
+
+	Participante [] listaParticipantes = new Participante[alumnos.length];
+	static String [] alumnos = { "Arkaitz",
+            "Erlantz1",
+            "Fran",
+            "Cristian",
+            "Erlantz2",
+            "Leire" ,
+            "Mikel",
+            "Josu",
+            "Alberto",
+            "Jon",
+            "Arantza",
+            "Naiara",
+            "Lander",
+            "Yeray",
+            "German"
+          };
+
+	static String [] Usugit = { "arkaitzgl",
+            "erliglesias",
+            "FranPerez92",
+            "CristianVar",
+            "Erlantzcabrejas",
+            "LeireBustin" ,
+            "zoroa84",
+            "Katakume",
+            "amsoria91",
+            "alarconsolis",
+            "arantxamg",
+            "naiaramateos",
+            "LanderAB",
+            "LordBlacKhiin",
+            ""
+          };
 	
-	static Participante [] alumnos = new Participante[15];
-	
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
+		Participante [] listaParticipantes = new Participante[alumnos.length];
+		for (int i = 0; i < alumnos.length; i++) {
+			listaParticipantes[i] = new Participante(alumnos[i], Usugit[i]);
+		}
 		
+		int numAleatorio = generarNumeroAleatorio(alumnos.length );					
 		
-		int numAleatorio = 0;
-		String alumno = "Ander";
+		System.out.println("El afortunad@ es:" + listaParticipantes[numAleatorio].getNombre() + " " + listaParticipantes[numAleatorio].getLinkGitHub() );
 		
-		int numeroAleatorio = generarNumeroAleatorio (alumnos.length);
-		//generar num aleatorio
-		//numAleatorio = (int) (Math.random()*alumnos.length);
-		
-		System.out.println("Que afortunado es: " + alumnos[numAleatorio]);
-
 	}
 	
 	/**
-	 * Genera/devuelve un valor aleatorio entre 0 y <code>max</code>
-	 * @param max: valor max del rango del que queremos sacar el numero aleatorio
-	 * @return
+	 * genera numero aleatorio entre 0 y <code>max</code>
+	 * @param max int numero maximo que puede generar la funcion
+	 * @return int aleatorio
 	 */
-	public static int generarNumeroAleatorio (int max){
-	//TODO falta implementar logica	
+	public static int generarNumeroAleatorio( int max ){
+		int resul = -1;
 		
-		return 1;
+		resul = (int)(Math.random()*max);
+		
+		return resul;
 	}
 	
-	
-}
 
+}

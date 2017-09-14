@@ -2,7 +2,10 @@ package com.ipartek.formacion.javalibro.ejercicios;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/*
+ * REPE JuegoNum mio
+ * (AdivinarNumero EJERCICIO ANDER)
+ */
 public class JuegoNum {
 
 	public static void main(String[] args) {

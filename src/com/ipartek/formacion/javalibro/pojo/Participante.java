@@ -34,8 +34,8 @@ public class Participante {
 		this.setEdad (edad);
 	}
 
-	// getters y setters (ENCAPSULAR): para acceder a los atributos y BEAN o
-	// POJO(clase con atributos)
+	// getters y setters (necesarios para mantener la encapsulacion)
+	//(ENCAPSULAR): para acceder a los atributos y BEAN o POJO(clase con atributos)
 	
 	
 	public String getNombre() {
@@ -89,8 +89,7 @@ public class Participante {
 	public void setEdad(int edad) throws ParticipanteException {
 		if (edad < 0){
 			throw new ParticipanteException( ParticipanteException.EXCEPTION_MENOR_CERO );
-		}
-		if (edad > 100){
+		} else if (edad > 100){
 			throw new ParticipanteException( ParticipanteException.EXCEPTION_MAYOR_CIEN );
 		}
 		this.edad = edad;
