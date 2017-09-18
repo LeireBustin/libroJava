@@ -45,7 +45,7 @@ public class CalcularVueltas {
 					+ " billetes de " + tipoBilletePago + " euros para una compra de "
 					+ vCompra + " euros totales." + BILLETES_MONEDAS.length);
 			
-			for(int i=0; i<(BILLETES_MONEDAS.length-1); i++) {
+			for(int i=0; i<(BILLETES_MONEDAS.length); i++) {
 				numBilletes[i] = 0;
 				while(vContVueltas >= BILLETES_MONEDAS[i]) {
 					vContVueltas = vContVueltas - BILLETES_MONEDAS[i];
