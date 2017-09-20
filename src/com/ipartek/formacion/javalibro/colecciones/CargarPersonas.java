@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import com.ipartek.formacion.javalibro.excepciones.PersonaException;
 import com.ipartek.formacion.javalibro.pojo.Persona;
 
 /**
@@ -149,8 +150,14 @@ public class CargarPersonas {
 		
 		
 	}
-	
-	private static Persona mapeoLinea (String[] campos) {
+	/**
+	 * Mete datos persona
+	 * @param campos
+	 * @return
+	 * @throws NumberFormatException
+	 * @throws PersonaException
+	 */
+	private static Persona mapeoLinea (String[] campos) throws NumberFormatException, PersonaException {
 		
 		Persona p = new Persona(    campos[CAMPOS_NOMBRE], 
 									campos[CAMPOS_APE1], 

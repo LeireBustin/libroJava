@@ -47,37 +47,37 @@ public class ValidacionesTest extends TestCase {
 		assertFalse(Validaciones.dni("1111111"));
 		assertFalse(Validaciones.dni("1111111Y"));
 		
+		assertFalse ("Sin guiones",Validaciones.dni("66778999-F"));
+		assertFalse ("Sin espacios en blanco",Validaciones.dni("66778999 A"));
+		assertFalse ("Sin caracteres extraños",Validaciones.dni("34322#133"));
+		assertFalse (Validaciones.dni("76677899."));
+		assertFalse (Validaciones.dni("D667L8990"));
+		
+		
 		assertTrue (Validaciones.dni("77111118H"));
 		assertTrue (Validaciones.dni("11111118h"));
-		assertTrue (Validaciones.dni("66778999d"));
-		assertTrue (Validaciones.dni("88888888G"));
-		assertTrue (Validaciones.dni("66778999F"));
-		assertTrue (Validaciones.dni("66778999A"));
-		assertTrue (Validaciones.dni("66778999h"));
+		
 		
 	}
 	
 	
-	/*
-	public void testDNI() {
-		
-		assertFalse(Validaciones.dni(null));
-		assertFalse (Validaciones.dni(""));
-		assertFalse (Validaciones.dni("34322#133"));
-		assertFalse (Validaciones.dni("K66778999"));
-		assertFalse (Validaciones.dni("D66778999"));
-		assertFalse (Validaciones.dni("D667L8990"));
-		assertFalse (Validaciones.dni("76677899."));
-		assertFalse (Validaciones.dni("D667 8999"));
-		
-		//assertTrue (Validaciones.dni("66778999D"));
-		assertTrue (Validaciones.dni("66778999d"));
-		assertTrue (Validaciones.dni("88888888G"));
-		assertTrue (Validaciones.dni("66778999-F"));
-		assertTrue (Validaciones.dni("66778999 A"));
-		assertTrue (Validaciones.dni("66778999-h"));
 
+	
+	public void testEdad () {
+		
+		assertTrue (Validaciones.edad(31));
+		
+		assertFalse (Validaciones.edad(185));
+		assertFalse (Validaciones.edad(-5));
+		
 	}
-	*/
-
+	
+	public void testRol(){
+		
+		assertTrue (Validaciones.rol("X"));
+		
+		assertFalse (Validaciones.rol("Y"));
+		
+		
+	}
 }
