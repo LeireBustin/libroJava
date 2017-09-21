@@ -10,11 +10,11 @@ public class Persona {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
+	private int edad;
 	private String email;
 	private String dni;
 	private String rol;
-	private int edad;
-	
+		
 	
 	public Persona(String nombre, String apellido1, String apellido2, String email, String dni, String rol, int edad) throws PersonaException {
 		super();
@@ -28,6 +28,19 @@ public class Persona {
 		this.rol = rol;
 		//this.edad = edad;
 		setEdad(edad);
+	}
+
+
+	public Persona() {
+		super();
+		this.nombre = "";
+		this.apellido1 = "";
+		this.apellido2 = "";
+		this.email = "";
+		this.dni = "";
+		this.rol = "";
+		this.edad = 0;
+		
 	}
 
 
