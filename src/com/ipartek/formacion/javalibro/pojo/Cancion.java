@@ -7,6 +7,7 @@ public class Cancion {
 	private String nombre;
 	private String artista;
 	private String duracion; // en minutos
+	private long id;
 
 	// CONSTRUCTORES
 	public Cancion() {
@@ -14,14 +15,18 @@ public class Cancion {
 		this.nombre = "";
 		this.artista = "";
 		this.duracion = "";
+		this.id = -1;
 
 	}
+
+
 
 	public Cancion(String nombre) {
 		super();
 		this.nombre = nombre;
 		this.artista = "";
 		this.duracion = "";
+		this.id = -1;
 
 	}
 
@@ -30,6 +35,7 @@ public class Cancion {
 		this.nombre = nombre;
 		this.artista = artista;
 		this.duracion = "";
+		this.id = -1;
 
 	}
 
@@ -38,12 +44,12 @@ public class Cancion {
 		this.nombre = nombre;
 		this.artista = artista;
 		this.duracion = duracion;
+		this.id = -1;
 
 	}
 
-	public String toString() {
-		return "Cancion [nombre=" + nombre + ", artista=" + artista + ", duracion=" + duracion + "]";
-	}
+	
+	
 
 	// getters y setters
 	public String getNombre() {
@@ -68,6 +74,20 @@ public class Cancion {
 
 	public void setDuracion(String duracion) {
 		this.duracion = duracion;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Cancion [nombre=" + nombre + ", artista=" + artista + ", duracion=" + duracion + ", id=" + id + "]";
 	}
 
 }
