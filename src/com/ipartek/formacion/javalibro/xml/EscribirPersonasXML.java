@@ -1,6 +1,7 @@
 package com.ipartek.formacion.javalibro.xml;
 /**
  * Ejercicio para convertir un data/personas.txt a data/personas.xml<br>
+ * TXT a XML
  * 
  * estructura del TXT:<br>
  * 
@@ -78,15 +79,19 @@ public class EscribirPersonasXML {
 				int cont = 0;
 			// TODO un bucle para todas las personas
 				while((linea = br.readLine() ) != null ) {
-					String [] cadenas = linea.split(",", 6);	//(array)p.length
+					String [] cadenas = linea.split(",");	//(array)p.length
 					//p = linea.split(",", 7);	//(array)p.length
-					p.setNombre(cadenas[0]);
-					p.setApellido1(cadenas[1]);
-					p.setApellido2(cadenas[2]);
-					p.setEdad(Integer.parseInt(cadenas[3]));
-					p.setEmail(cadenas[4]);
-					p.setDni(cadenas[5]);
-					p.setRol(cadenas[6]);
+					if( cadenas.length == 7) {
+						p.setNombre(cadenas[0]);
+						p.setApellido1(cadenas[1]);
+						p.setApellido2(cadenas[2]);
+						p.setEdad(Integer.parseInt(cadenas[3]));
+						p.setEmail(cadenas[4]);
+						p.setDni(cadenas[5]);
+						p.setRol(cadenas[6]);	
+					}
+					
+					
 					
 					aPersonas.add(cont , p);
 					System.out.println(linea);

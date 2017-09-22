@@ -108,7 +108,7 @@ public class Validaciones {
 	 * https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 	 * 
 	 * boolean resul = false; // final Pattern VALID_DNI =
-	 * Pattern.compile("^[0-9]{8}+\\[A-Z]{1,2}", // Pattern.CASE_INSENSITIVE); final
+	 * Pattern.compile("^[0-9]{8}+\\[A-Z]{1}", // Pattern.CASE_INSENSITIVE); final
 	 * Pattern VALID_DNI = Pattern.compile("[0-9]{8}+[A-Z]{1,2}",
 	 * Pattern.CASE_INSENSITIVE); if (dni != null) { Matcher matcher =
 	 * VALID_DNI.matcher(dni); resul = matcher.find(); } return resul; // return
