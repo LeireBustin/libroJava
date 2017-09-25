@@ -48,8 +48,8 @@ import java.util.ArrayList;
 
 public class EscribirPersonasXML {
 
-	
-	static final String PATH_TXT_A_LEER = "data\\personas.txt";	//con extension .txt incluida
+	static final String PATH_TXT_A_LEER = "data\\personasPrueba10.txt";
+	//static final String PATH_TXT_A_LEER = "data\\personas.txt";	//con extension .txt incluida
 	static ArrayList<Persona> aPersonas = null;
 	
 	public static void main(String[] args) {
@@ -68,6 +68,9 @@ public class EscribirPersonasXML {
 				Element rootElement = doc.createElement("personas");
 			doc.appendChild(rootElement);
 
+			
+			
+			
 			
 			// TODO conseguir ArrayList<Persona> a partir del fichero de texto
 			//LEER .TXT Y GUARDAR DATOS EN ARRAY
@@ -88,13 +91,15 @@ public class EscribirPersonasXML {
 						p.setEdad(Integer.parseInt(cadenas[3]));
 						p.setEmail(cadenas[4]);
 						p.setDni(cadenas[5]);
-						p.setRol(cadenas[6]);	
+						p.setRol(cadenas[6]);
+						
+						aPersonas.add(cont , p);
+						
+					} else {
+						System.out.println("Num. campos: " + cadenas.length + ". Falta campo en cont: " + cont);
+						System.out.println(linea);
 					}
-					
-					
-					
-					aPersonas.add(cont , p);
-					System.out.println(linea);
+					System.out.println("Num. campos: " + aPersonas.size() );
 					cont++;
 				}
 				System.out.println("---------------------------------");
@@ -117,26 +122,70 @@ public class EscribirPersonasXML {
 			
 			//TODO VOLVAR LOS DATOS DEL ARRAY DE PERSONAS AL XML
 			
-
-			// Añadir Elementos Persona al nodo raiz
+			/*
 			Element ePersona = doc.createElement("persona");
-				Element eNombre = doc.createElement("nombre");
-				eNombre.setTextContent("Ted");
-				// TODO resto de Campos o Elementos
+         		Element eNombre = doc.createElement("nombre");
+         		eNombre.setTextContent("Ted");
+         		//TODO resto de Campos o Elementos
+         
+         		ePersona.appendChild(eNombre);
+         	rootElement.appendChild(ePersona);
+			*/
+			
+
+					
+			
+			// TODO un bucle para todas las personas
+			for(int i = 0; i < aPersonas.size() ; i++) {
+				// Añadir Elemento Persona al nodo raiz Personas
+				Element ePersona = doc.createElement("persona");
 				
-				
-				ePersona.appendChild(eNombre);
-			rootElement.appendChild(ePersona);
+					Element eNombre = doc.createElement("nombre");
+		         	eNombre.setTextContent(aPersonas.get(i).getNombre());
+					ePersona.appendChild(eNombre);
+					
+					Element eApellido1 = doc.createElement("apellido1");
+		         	eApellido1.setTextContent(aPersonas.get(i).getApellido1());
+					ePersona.appendChild(eApellido1);
+					
+					Element eApellido2 = doc.createElement("apellido2");
+		         	eApellido2.setTextContent(aPersonas.get(i).getApellido2());
+					ePersona.appendChild(eApellido2);
+					
+					Element eEdad = doc.createElement("edad");
+		         	eEdad.setTextContent(aPersonas.get(i).getApellido1());
+					ePersona.appendChild(eEdad);
+					
+					Element eEmail = doc.createElement("email");
+					eEmail.setTextContent(aPersonas.get(i).getEmail());
+					ePersona.appendChild(eEmail);
+					
+					Element eDni = doc.createElement("dni");
+					eDni.setTextContent(aPersonas.get(i).getDni());
+					ePersona.appendChild(eDni);
+					
+					Element eRol = doc.createElement("email");
+					eRol.setTextContent(aPersonas.get(i).getRol());
+					ePersona.appendChild(eRol);
+			
+				// Añadir cierre de elemento Persona al nodo raiz	
+				rootElement.appendChild(ePersona);	
+			}
+			
 
 			
 			
 			
-				// guardar en fichero
+			// guardar en fichero
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File("data\\personas.xml"));
 			transformer.transform(source, result);
+			
+			// Output to console for testing
+	         StreamResult consoleResult = new StreamResult(System.out);
+	         transformer.transform(source, consoleResult);
 
 		} catch (Exception e) {
 			e.printStackTrace();
