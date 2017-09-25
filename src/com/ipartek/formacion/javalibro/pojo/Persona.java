@@ -80,11 +80,11 @@ public class Persona {
 
 
 	public void setEmail(String email) throws PersonaException {
-		/*
+		
 		if ( !Validaciones.email(email) ) {
 			throw new PersonaException(PersonaException.MSG_EMAIL_ERROR);
 		}
-		*/
+		
 		this.email = email;
 	}
 
@@ -95,11 +95,11 @@ public class Persona {
 
 
 	public void setDni(String dni) throws PersonaException {
-		/*
+		
 		if ( !Validaciones.dni(dni) ) {
 			throw new PersonaException(PersonaException.MSG_DNI_ERROR);
 		}
-		*/	
+			
 		this.dni = dni;
 	}
 
@@ -124,11 +124,11 @@ public class Persona {
  * @throws PersonaException edad < 18
  */
 	public void setEdad(int edad) throws PersonaException {
-		/*
+		
 		if ( !Validaciones.edad(edad) || edad < MAYOR_EDAD ) {
 			throw new PersonaException(PersonaException.MSG_EDAD_MENOR);
 		}
-		*/
+		
 		this.edad = edad;
 	}
 

@@ -48,7 +48,7 @@ import java.util.ArrayList;
 
 public class EscribirPersonasXML {
 
-	static final String PATH_TXT_A_LEER = "data\\personasPrueba10.txt";
+	static final String PATH_TXT_A_LEER = "data\\personasPrueba100.txt";
 	//static final String PATH_TXT_A_LEER = "data\\personas.txt";	//con extension .txt incluida
 	static ArrayList<Persona> aPersonas = null;
 	
@@ -57,8 +57,8 @@ public class EscribirPersonasXML {
 		FileReader fr = null;
 		BufferedReader br = null;
 		aPersonas = new ArrayList<Persona>();
-		Persona p = null;
-		
+		//Persona p = null;
+				
 		try {
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -75,7 +75,7 @@ public class EscribirPersonasXML {
 			// TODO conseguir ArrayList<Persona> a partir del fichero de texto
 			//LEER .TXT Y GUARDAR DATOS EN ARRAY
 			try {
-				p = new Persona();
+				//p = new Persona();
 				fr = new FileReader(PATH_TXT_A_LEER);
 				br = new BufferedReader(fr);
 				String linea = "";
@@ -85,15 +85,25 @@ public class EscribirPersonasXML {
 					String [] cadenas = linea.split(",");	//(array)p.length
 					//p = linea.split(",", 7);	//(array)p.length
 					if( cadenas.length == 7) {
+						Persona p = new Persona();
 						p.setNombre(cadenas[0]);
 						p.setApellido1(cadenas[1]);
 						p.setApellido2(cadenas[2]);
-						p.setEdad(Integer.parseInt(cadenas[3]));
-						p.setEmail(cadenas[4]);
-						p.setDni(cadenas[5]);
+						try {
+							p.setEdad(Integer.parseInt(cadenas[3]));
+						}catch(Exception e) { 
+							continue;
+						}
+						try {
+							p.setEmail(cadenas[4]);
+						}catch(Exception e) {}
+						try {
+							p.setDni(cadenas[5]);
+						}catch(Exception e) {}
+						
 						p.setRol(cadenas[6]);
 						
-						aPersonas.add(cont , p);
+						aPersonas.add(cont, p);
 						
 					} else {
 						System.out.println("Num. campos: " + cadenas.length + ". Falta campo en cont: " + cont);
@@ -152,8 +162,9 @@ public class EscribirPersonasXML {
 		         	eApellido2.setTextContent(aPersonas.get(i).getApellido2());
 					ePersona.appendChild(eApellido2);
 					
+					String str = "" + aPersonas.get(i).getEdad();
 					Element eEdad = doc.createElement("edad");
-		         	eEdad.setTextContent(aPersonas.get(i).getApellido1());
+		         	eEdad.setTextContent(str);
 					ePersona.appendChild(eEdad);
 					
 					Element eEmail = doc.createElement("email");
