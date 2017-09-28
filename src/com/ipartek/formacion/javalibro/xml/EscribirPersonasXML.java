@@ -39,6 +39,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.ipartek.formacion.javalibro.excepciones.PersonaException;
 import com.ipartek.formacion.javalibro.pojo.Persona;
 
 import java.io.BufferedReader;
@@ -48,8 +49,9 @@ import java.util.ArrayList;
 
 public class EscribirPersonasXML {
 
-	static final String PATH_TXT_A_LEER = "data\\personasPrueba100.txt";
-	//static final String PATH_TXT_A_LEER = "data\\personas.txt";	//con extension .txt incluida
+	static final String PATH_TXT_A_LEER = "data\\personasPrueba.txt";	//Contiene sólo 100 personas para que no pete (mejor dicho para no estar esperando hasta mañana-algo falla, no puede ser tan lento)
+	//static final String PATH_TXT_A_LEER = "data\\personas.txt";	//con extension .txt incluida	CASCA DESCARADAMENTE (+ de 20mins generando XML y hasta el infinito-como esta línea...)
+	static final int MAX_CAMPOS = 7;
 	static ArrayList<Persona> aPersonas = null;
 	
 	public static void main(String[] args) {
@@ -83,37 +85,40 @@ public class EscribirPersonasXML {
 			// TODO un bucle para todas las personas
 				while((linea = br.readLine() ) != null ) {
 					String [] cadenas = linea.split(",");	//(array)p.length
-					//p = linea.split(",", 7);	//(array)p.length
-					if( cadenas.length == 7) {
-						Persona p = new Persona();
-						p.setNombre(cadenas[0]);
-						p.setApellido1(cadenas[1]);
-						p.setApellido2(cadenas[2]);
-						try {
-							p.setEdad(Integer.parseInt(cadenas[3]));
-						}catch(Exception e) { 
-							continue;
-						}
-						try {
-							p.setEmail(cadenas[4]);
-						}catch(Exception e) {}
-						try {
-							p.setDni(cadenas[5]);
-						}catch(Exception e) {}
-						
-						p.setRol(cadenas[6]);
-						
-						aPersonas.add(cont, p);
+					//p = linea.split(",", MAX_CAMPOS);	//(array)p.length
+					if( cadenas.length == MAX_CAMPOS) {
+						try{
+							Persona p = new Persona();
+							p.setNombre(cadenas[0]);
+							p.setApellido1(cadenas[1]);
+							p.setApellido2(cadenas[2]);
+							try {
+								p.setEdad(Integer.parseInt(cadenas[3]));
+							}catch(Exception e){
+								//continue;
+							}
+							try {
+								p.setEmail(cadenas[4]);
+							}catch(Exception e) {}
+							try {
+								p.setDni(cadenas[5]);
+							}catch(Exception e) {}
+							
+							p.setRol(cadenas[6]);
+							
+							aPersonas.add(p);
+							//aPersonas.add(cont, p);
+						} catch(Exception e) {}
 						
 					} else {
-						System.out.println("Num. campos de la persona: " + cadenas.length + "!=7. Falta campo en cont: " + cont);
+						System.out.println("Num. campos de la persona: " + cadenas.length + "!=" + MAX_CAMPOS +". Falta campo en cont: " + cont + ", es decir, persona numero " + (cont+1) + " de la lista txt:");
 						System.out.println(linea);
 					}
-					System.out.println("Num. elementos array: " + aPersonas.size() );
+					//System.out.println("Num. elementos array: " + aPersonas.size() );
 					cont++;
 				}
 				System.out.println("---------------------------------");
-				System.out.println( cont + "lineas leidas");
+				System.out.println( cont + "lineas leidas del TXT y " + aPersonas.size() + " personas introducidas en el XML");
 				
 			} catch (Exception e) {
 				e.printStackTrace();

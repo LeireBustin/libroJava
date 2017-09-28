@@ -21,13 +21,14 @@ public class Persona {
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
+		//this.edad = edad;
+		setEdad(edad);
 		//this.email = email;
 		setEmail(email);
 		//this.dni = dni;
 		setDni(dni);
 		this.rol = rol;
-		//this.edad = edad;
-		setEdad(edad);
+		
 	}
 
 
@@ -73,20 +74,35 @@ public class Persona {
 		this.apellido2 = apellido2;
 	}
 
-
+	/**
+	 * Setea la edad de la persona
+	 * @param edad int años de la persona
+	 * @throws PersonaException edad < 18
+	 */
+	public void setEdad(int edad) throws PersonaException {
+		/* boolean erroneo = false;		//*/
+		if ( !Validaciones.edad(edad) || edad < MAYOR_EDAD ) {
+			/* erroneo = true;		//*/
+			throw new PersonaException(PersonaException.MSG_EDAD_MENOR);
+		}
+			
+		this.edad = edad;
+		/* return erroneo;		//No se si lo recoge o se lo envia bien a entradaErronea de ValidacionPersona (en POJOs)*/
+	}
+	
 	public String getEmail() {
 		return email;
 	}
 
 
-	public boolean setEmail(String email) throws PersonaException {
-		boolean erroneo = false;	//
+	public void setEmail(String email) throws PersonaException {
+		/* boolean erroneo = false;	//*/
 		if ( !Validaciones.email(email) ) {
-			erroneo = true;		//
+			/* erroneo = true;		//*/
 			throw new PersonaException(PersonaException.MSG_EMAIL_ERROR);
 		}
 		this.email = email;
-		return erroneo;		//
+		/* return erroneo;		//*/
 	}
 
 
@@ -95,15 +111,15 @@ public class Persona {
 	}
 
 
-	public boolean setDni(String dni) throws PersonaException {
-		boolean erroneo = false;		//
+	public void setDni(String dni) throws PersonaException {
+		/* boolean erroneo = false;		//*/
 		if ( !Validaciones.dni(dni) ) {
-			erroneo = true;		//
+			/* erroneo = true;		//*/
 			throw new PersonaException(PersonaException.MSG_DNI_ERROR);
 		}
 			
 		this.dni = dni;
-		return erroneo;		//
+		/* return erroneo;		//*/
 	}
 
 
@@ -120,23 +136,6 @@ public class Persona {
 	public int getEdad() {
 		return edad;
 	}
-
-/**
- * Setea la edad de la persona
- * @param edad int años de la persona
- * @throws PersonaException edad < 18
- */
-	public boolean setEdad(int edad) throws PersonaException {
-		boolean erroneo = false;		//
-		if ( !Validaciones.edad(edad) || edad < MAYOR_EDAD ) {
-			erroneo = true;		//
-			throw new PersonaException(PersonaException.MSG_EDAD_MENOR);
-		}
-		
-		this.edad = edad;
-		return erroneo;		//No se si lo recoge bien
-	}
-
 
 	@Override
 	public String toString() {

@@ -46,12 +46,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class ConvertirTXTaXML_LEIREBUSTINZA {
+public class EscribirPersonasXML2_fail {
 
 	static final String PATH_TXT_A_LEER = "data\\personasPrueba100.txt";
 	// static final String PATH_TXT_A_LEER = "data\\personas.txt"; //con extension .txt incluida
 	static ArrayList<Persona> aPersonas = null;
-	static ArrayList<String[]> aPersonasTodas = null;		//para incluir los elementos erroneos que no puedan cumplir las condiciones de una Persona (edad>18, email y dni completos)
+	static ArrayList<String[]> aPersonasTodas = null;		//para incluir los elementos erroneos que no puedan cumplir las condiciones de un objeto de Clase Persona (edad>18, email@. y dni completos)
 
 	public static void main(String[] args) {
 
@@ -90,17 +90,17 @@ public class ConvertirTXTaXML_LEIREBUSTINZA {
 						p.setApellido1(cadenas[1]);
 						p.setApellido2(cadenas[2]);
 						try {
-							entradaErronea = p.setEdad(Integer.parseInt(cadenas[3]));
+							// entradaErronea = p.setEdad(Integer.parseInt(cadenas[3]));
 						} catch (Exception e) {
 							continue;
 						}
 						try {
-							entradaErronea = p.setEmail(cadenas[4]);
+							// entradaErronea = p.setEmail(cadenas[4]);
 							
 						} catch (Exception e) {
 						}
 						try {
-							entradaErronea = p.setDni(cadenas[5]);
+							// entradaErronea = p.setDni(cadenas[5]);
 							
 						} catch (Exception e) {
 							
