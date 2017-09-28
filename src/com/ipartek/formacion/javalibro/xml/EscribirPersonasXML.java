@@ -106,10 +106,10 @@ public class EscribirPersonasXML {
 						aPersonas.add(cont, p);
 						
 					} else {
-						System.out.println("Num. campos: " + cadenas.length + ". Falta campo en cont: " + cont);
+						System.out.println("Num. campos de la persona: " + cadenas.length + "!=7. Falta campo en cont: " + cont);
 						System.out.println(linea);
 					}
-					System.out.println("Num. campos: " + aPersonas.size() );
+					System.out.println("Num. elementos array: " + aPersonas.size() );
 					cont++;
 				}
 				System.out.println("---------------------------------");
@@ -130,7 +130,7 @@ public class EscribirPersonasXML {
 			
 			
 			
-			//TODO VOLVAR LOS DATOS DEL ARRAY DE PERSONAS AL XML
+			//TODO VOLCAR LOS DATOS DEL ARRAY DE PERSONAS AL XML
 			
 			/*
 			Element ePersona = doc.createElement("persona");

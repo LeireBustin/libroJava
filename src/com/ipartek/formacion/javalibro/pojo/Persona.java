@@ -79,13 +79,14 @@ public class Persona {
 	}
 
 
-	public void setEmail(String email) throws PersonaException {
-		
+	public boolean setEmail(String email) throws PersonaException {
+		boolean erroneo = false;	//
 		if ( !Validaciones.email(email) ) {
+			erroneo = true;		//
 			throw new PersonaException(PersonaException.MSG_EMAIL_ERROR);
 		}
-		
 		this.email = email;
+		return erroneo;		//
 	}
 
 
@@ -94,13 +95,15 @@ public class Persona {
 	}
 
 
-	public void setDni(String dni) throws PersonaException {
-		
+	public boolean setDni(String dni) throws PersonaException {
+		boolean erroneo = false;		//
 		if ( !Validaciones.dni(dni) ) {
+			erroneo = true;		//
 			throw new PersonaException(PersonaException.MSG_DNI_ERROR);
 		}
 			
 		this.dni = dni;
+		return erroneo;		//
 	}
 
 
@@ -123,13 +126,15 @@ public class Persona {
  * @param edad int años de la persona
  * @throws PersonaException edad < 18
  */
-	public void setEdad(int edad) throws PersonaException {
-		
+	public boolean setEdad(int edad) throws PersonaException {
+		boolean erroneo = false;		//
 		if ( !Validaciones.edad(edad) || edad < MAYOR_EDAD ) {
+			erroneo = true;		//
 			throw new PersonaException(PersonaException.MSG_EDAD_MENOR);
 		}
 		
 		this.edad = edad;
+		return erroneo;		//No se si lo recoge bien
 	}
 
 
